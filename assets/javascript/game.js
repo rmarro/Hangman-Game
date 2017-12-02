@@ -21,22 +21,24 @@
 
 
 
-// Set counter and score
+// Set score
 var score = 0;
+document.getElementById("wins").innerHTML = score;
 // Create list of words and letters
 var wordList = ["dog", "bird", "hedgehog", "calico cat"];
-
 var allowedLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-document.getElementById("wins").innerHTML = score;
+// Create variables
 var remaining = 10;
 var alreadyGuessed = [];
 var chosenWord;
 var progressWord;
 var arrayWord;
+
 window.onload = reset();
 
 function reset() {
 
+	// Number of guesses left
 	remaining = 10;
 	document.getElementById("remaining").innerHTML = remaining;
 
@@ -47,12 +49,11 @@ function reset() {
 	// Computer randomly selects a word
 	chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
 
-
 	// Change the word into an array of letters
 	arrayWord = chosenWord.split("");
 	console.log(arrayWord);
 
-	// Create blanks that will be filled; fill in any spaces
+	// Create blanks that will be filled with correct gueses; fill in any spaces
 	progressWord = [];
 
 	for (var i = 0; i < arrayWord.length; i++) {
@@ -63,49 +64,66 @@ function reset() {
 	    	progressWord.push("_");
 	  	}
 	}
-	// Create display with spaces instead of commas
+
+	// Create display word with spaces instead of commas
 	var displayWord = progressWord.join(" ")
 	document.getElementById("display").innerHTML = displayWord;
 }
 
 
+// When key is pressed
+document.onkeyup = function(event) {
 
-	// When key is pressed, save that as guessed letter
-	document.onkeyup = function(event) {
+	// If won or lost, stop allowing guesses
+	if (progressWord.indexOf("_") === -1 || remaining === 0) {
+		return;
+	}
+
+	// If no win/loss yet, save key as user guess
+	else {
 		var userGuess = event.key;
 	  
-	  // Only if pressed key is an allowed letter
-	  if (allowedLetters.indexOf(userGuess) != -1) {
+	  	// Only if pressed key is an allowed letter
+	  	if (allowedLetters.indexOf(userGuess) != -1) {
+
 	    	// Check if guessed letter is in the word
-	    	// If yes
+
+	    	// If YES:
 	    	if (arrayWord.indexOf(userGuess) != -1) { 
+
 	    	  	// Replace each correct letter in progress word
 	    	  	for (j = 0; j < arrayWord.length; j++) {
 	       		if (userGuess === arrayWord[j]) {
 	          		progressWord.splice(j, 1, userGuess);
-	          		// Get rid of commas for the display word
+
+	          		// Get rid of commas for the display word and display it
 	          		displayWord = progressWord.join(" ");
 	          		document.getElementById("display").innerHTML = displayWord;
-	          		// If full word is done, increase score
+
+	          		// If full word is done, increase score and display score and win
 	          		if (progressWord.indexOf("_") === -1) {
 	            		score++;
 	            		document.getElementById("wins").innerHTML = score;
+	            		document.getElementById("remaining").innerHTML = "You got it!";
 	          		}
 	        		}
 	      	}
 	    	}
 
-	    	// If no
+	    	// If NO:
 	    	else {
 	      	// If not already in alreadyGuessed array, add it
 	      	if (alreadyGuessed.indexOf(userGuess) === -1) {
 	        		alreadyGuessed.push(userGuess);
+
 	        		// Get rid of commas for display guesses and display it
 	        		var displayAlreadyGuessed = alreadyGuessed.join(" ");
 	        		document.getElementById("guessed").innerHTML = displayAlreadyGuessed;
+
 	        		// Subtract one from counter and display it
 	        		remaining--;
 	        		document.getElementById("remaining").innerHTML = remaining;
+
 	        		// If run out of guesses
 	        		if (remaining === 0) {
 	        			document.getElementById("remaining").innerHTML = "Out of guesses!";
@@ -114,6 +132,7 @@ function reset() {
 	    	}
 	  	}
 	}
+}
 
 
 
@@ -122,11 +141,3 @@ function reset() {
 // TO DO:
 
 // If guess full word, show pic/play song/etc
-
-// If win or lose, cannot guess anymore
-
-// DONE (??)
-// If win or lose, randomly choose new word
-// If win or lose, reset guesses remaining
-// If win or lose, reset already guessed list
-// Make a "Play again" button that does all this ^^ ??

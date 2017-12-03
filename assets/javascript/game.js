@@ -120,13 +120,13 @@ document.onkeyup = function(event) {
 
 	          		// Get rid of commas for the display word and display it
 	          		displayWord = progressWord.join(" ");
-	          		getDisplay.innerHTML = displayWord;
+	          		getDisplay.innerHTML = displayWord.toUpperCase();
 
 	          		// If full word is done, increase score and display score, win message, and matchin picture
 	          		if (progressWord.indexOf("_") === -1) {
 	            		score++;
 	            		getWins.innerHTML = score;
-	            		getRemaining.innerHTML = "You got it!";
+	            		getRemaining.innerHTML = "<h1>What a lovely day!</h1><h3>(You won!)</h3>";
 	            		rightPic(chosenWord);
 	          		}
 	        		}

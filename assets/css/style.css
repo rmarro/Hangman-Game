@@ -1,5 +1,14 @@
-#reset {
+/*#reset {
 	padding: 4px;
 	border: 1px solid;
 	background: green;
+}*/
+
+body {
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.panel-body div {
+	margin-bottom: 10px;
 }

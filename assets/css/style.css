@@ -2,21 +2,29 @@ body {
 	text-align: center;
 	box-sizing: border-box;
 	font-family: 'Bowlby One SC', cursive;
+	background-image: url(../images/background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .jumbotron {
-	background-image: url(../images/banner.jpg);
+	background-image: url(../images/banner2.jpg);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	text-align: left;
-	background-color: transparent;
 }
 
-.jumbotron h2 {
-	color: black;
-	opacity: .7;
-	font-size: 40px;
+.jumbotron h3 {
+	color: #f98704;
+	opacity: .9;
+	font-size: 30px;
+	padding: 0px;
+}
+
+.panel, .well {
+	background-color: rgba(0, 0, 0, .8);
+	color: white;
 }
 
 .panel-body div {
@@ -42,6 +50,10 @@ body {
 
 div.panel-body {
 	height: 320.8px;
+}
+
+#wins {
+	padding-left: 15px;
 }
 
 #pic {

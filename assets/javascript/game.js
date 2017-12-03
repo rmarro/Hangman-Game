@@ -68,6 +68,9 @@ function reset() {
 	// Clear picture
 	getPic.innerHTML = "?"
 
+	// Clear play again color
+	document.getElementById("reset-full").style.backgroundColor = "rgba("+0+","+0+","+0+","+.8+ ")";
+
 	// Computer randomly selects a word
 	chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
 
@@ -122,12 +125,13 @@ document.onkeyup = function(event) {
 	          		displayWord = progressWord.join(" ");
 	          		getDisplay.innerHTML = displayWord;
 
-	          		// If full word is done, increase score and display score, win message, and matchin picture
+	          		// If full word is done, increase score and display score, win message, and matching picture
 	          		if (progressWord.indexOf("_") === -1) {
 	            		score++;
 	            		getWins.innerHTML = score;
 	            		getRemaining.innerHTML = "<h3>What a lovely day!</h3><h4>(You won)</h4>";
 	            		rightPic(chosenWord);
+	            		document.getElementById("reset-full").style.backgroundColor = "rgba("+250+","+135+","+4+","+.7+ ")";
 	          		}
 	        		}
 	      	}

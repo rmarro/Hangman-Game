@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Fire & Blood</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Walter+Turncoat" rel="stylesheet">
  	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <!-- <body>
@@ -27,13 +28,13 @@
 	<h2 id="reset" onclick="reset()">Play again!</h2>
 
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
- -->
 
+ -->
 <div class="container">
 
 	<div class="row">
 		<div class="jumbotron">
-			<h2>Awesome Quote</h2>
+			<h2>Out here, everything hurts</h2>
 		</div>
 
 	</div>
@@ -45,13 +46,16 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 				    <div>
-		  				guess the word
+		  				<h2>Guess the word:</h2>
+						<div id="display"></div>
 		  			</div>
-		  			<div>
-		  				already guessed
+		  			<div id="guesses-div">
+		  				<h3>Already guessed:</h3>
+						<div id="guessed"></div>
 		  			</div>
-		  			<div>
-		  				guesses left
+		  			<div id="remaining-div">
+		  				<h3>Guesses remaining:</h3>
+						<div id="remaining"></div>
 		  			</div>
 			  	</div>
 			</div>
@@ -61,10 +65,11 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 				    <div>
-		  				score
+		  				<h3>Wins:</h3>
+  						<div id="wins"></div>
 		  			</div>
 		  			<div>
-		  				picture
+		  				<div class=" col-md-offset-2 col-md-8" id="pic"></div>
 		  			</div>
 			  	</div>
 			</div>
@@ -73,14 +78,17 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-offset-2 col-md-8">
-			<div class="well">
-				Play again
+		<div class="col-md-offset-3 col-md-6">
+			<div class="well" onclick="reset()">
+				<h3 id="reset">I live, I die, I live again!</h3>
+				<h4 id="reset-sub">(Play again)</h4>
 			</div>
 		</div>
 	</div>
 
 </div>
+
+<script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </body>
 </html>

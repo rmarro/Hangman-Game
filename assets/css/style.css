@@ -1,14 +1,53 @@
-/*#reset {
-	padding: 4px;
-	border: 1px solid;
-	background: green;
-}*/
-
 body {
 	text-align: center;
 	box-sizing: border-box;
+	font-family: 'Bowlby One SC', cursive;
+}
+
+.jumbotron {
+	background-image: url(../images/banner.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: left;
+	background-color: transparent;
+}
+
+.jumbotron h2 {
+	color: black;
+	opacity: .7;
+	font-size: 40px;
 }
 
 .panel-body div {
 	margin-bottom: 10px;
+}
+
+#display, #guessed, #remaining, #wins, #reset-sub {
+	font-family: 'Walter Turncoat', cursive;
+	font-size: 20px;
+}
+
+#guesses-div {
+	height: 60px;
+}
+
+#remaining {
+	margin-top: 10px;
+}
+
+#remaining-div {
+	height: 90px;
+}
+
+div.panel-body {
+	height: 320.8px;
+}
+
+#pic {
+	margin-top: 10px;
+	font-size: 175px;
+	line-height: 1;
+	border: 1px solid grey;
+	padding: 0px;
 }

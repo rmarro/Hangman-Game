@@ -43,7 +43,7 @@ var allowedLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 // Function to show matching picture on win
 function rightPic(word) {
 	if(word === "dog") {
-		getPic.innerHTML = "<img src=\"assets/images/dog.jpg\" width=\"150px\">";
+		getPic.innerHTML = "<img src=\"assets/images/dog.jpg\" width=\"100%\">";
 	}
 }
 
@@ -66,7 +66,7 @@ function reset() {
 	getGuessed.innerHTML = alreadyGuessed;
 
 	// Clear picture
-	getPic.innerHTML = ""
+	getPic.innerHTML = "?"
 
 	// Computer randomly selects a word
 	chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
@@ -120,13 +120,13 @@ document.onkeyup = function(event) {
 
 	          		// Get rid of commas for the display word and display it
 	          		displayWord = progressWord.join(" ");
-	          		getDisplay.innerHTML = displayWord.toUpperCase();
+	          		getDisplay.innerHTML = displayWord;
 
 	          		// If full word is done, increase score and display score, win message, and matchin picture
 	          		if (progressWord.indexOf("_") === -1) {
 	            		score++;
 	            		getWins.innerHTML = score;
-	            		getRemaining.innerHTML = "<h1>What a lovely day!</h1><h3>(You won!)</h3>";
+	            		getRemaining.innerHTML = "<h3>What a lovely day!</h3><h4>(You won)</h4>";
 	            		rightPic(chosenWord);
 	          		}
 	        		}

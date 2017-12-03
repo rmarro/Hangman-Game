@@ -11,40 +11,62 @@
 	// If already guessed, no action
 
 // If guess full word, increase wins by 1
-// If guess full word, show pic/play song/etc
+// If guess full word, show pic
 
 // If run out of guesses, game over
 
-// If win or lose, randomly choose new word
-// If win or lose, reset guesses remaining
+// If win or lose, cannot keep guessing
+
+// Play again randomly chooses new word and resets (not score)
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
-// Set score
-var score = 0;
-document.getElementById("wins").innerHTML = score;
+// Create variables 
+var chosenWord;
+var arrayWord;
+var progressWord;
+var remaining = 10;
+var alreadyGuessed = [];
+
+// Save all getElementById as variables
+var getRemaining = document.getElementById("remaining")
+var getGuessed = document.getElementById("guessed")
+var getDisplay = document.getElementById("display")
+var getWins = document.getElementById("wins")
+var getPic = document.getElementById("pic")
+
 // Create list of words and letters
 var wordList = ["dog", "bird", "hedgehog", "calico cat"];
 var allowedLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// Create variables
-var remaining = 10;
-var alreadyGuessed = [];
-var chosenWord;
-var progressWord;
-var arrayWord;
+
+// Function to show matching picture on win
+function rightPic(word) {
+	if(word === "dog") {
+		getPic.innerHTML = "<img src=\"assets/images/dog.jpg\" width=\"150px\">";
+	}
+}
+
+
+// Set score to zero and display
+var score = 0;
+document.getElementById("wins").innerHTML = score;
+
 
 window.onload = reset();
 
 function reset() {
 
-	// Number of guesses left
+	// Set number of guesses left to 10 and display
 	remaining = 10;
-	document.getElementById("remaining").innerHTML = remaining;
+	getRemaining.innerHTML = remaining;
 
 	// Empty array for guessed letters
 	alreadyGuessed = [];
-	document.getElementById("guessed").innerHTML = alreadyGuessed;
+	getGuessed.innerHTML = alreadyGuessed;
+
+	// Clear picture
+	getPic.innerHTML = ""
 
 	// Computer randomly selects a word
 	chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
@@ -67,7 +89,7 @@ function reset() {
 
 	// Create display word with spaces instead of commas
 	var displayWord = progressWord.join(" ")
-	document.getElementById("display").innerHTML = displayWord;
+	getDisplay.innerHTML = displayWord;
 }
 
 
@@ -98,13 +120,14 @@ document.onkeyup = function(event) {
 
 	          		// Get rid of commas for the display word and display it
 	          		displayWord = progressWord.join(" ");
-	          		document.getElementById("display").innerHTML = displayWord;
+	          		getDisplay.innerHTML = displayWord;
 
-	          		// If full word is done, increase score and display score and win
+	          		// If full word is done, increase score and display score, win message, and matchin picture
 	          		if (progressWord.indexOf("_") === -1) {
 	            		score++;
-	            		document.getElementById("wins").innerHTML = score;
-	            		document.getElementById("remaining").innerHTML = "You got it!";
+	            		getWins.innerHTML = score;
+	            		getRemaining.innerHTML = "You got it!";
+	            		rightPic(chosenWord);
 	          		}
 	        		}
 	      	}
@@ -118,22 +141,21 @@ document.onkeyup = function(event) {
 
 	        		// Get rid of commas for display guesses and display it
 	        		var displayAlreadyGuessed = alreadyGuessed.join(" ");
-	        		document.getElementById("guessed").innerHTML = displayAlreadyGuessed;
+	        		getGuessed.innerHTML = displayAlreadyGuessed;
 
 	        		// Subtract one from counter and display it
 	        		remaining--;
-	        		document.getElementById("remaining").innerHTML = remaining;
+	        		getRemaining.innerHTML = remaining;
 
 	        		// If run out of guesses
 	        		if (remaining === 0) {
-	        			document.getElementById("remaining").innerHTML = "Out of guesses!";
+	        			getRemaining.innerHTML = "Out of guesses!";
 	        		}
 	      	}
 	    	}
 	  	}
 	}
 }
-
 
 
 

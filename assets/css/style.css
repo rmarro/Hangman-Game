@@ -12,19 +12,25 @@ body {
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	text-align: left;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .jumbotron h3 {
 	color: #f98704;
-	opacity: .9;
-	font-size: 30px;
+	font-size: 38px;
 	padding: 0px;
+}
+
+.jumbotron h2 {
+	color: #f98704;
 }
 
 .panel, .well {
 	background-color: rgba(0, 0, 0, .8);
 	color: white;
+	border: 1px solid #f98704;
 }
 
 .panel-body div {
@@ -52,14 +58,19 @@ div.panel-body {
 	height: 320.8px;
 }
 
+#witness {
+	margin-top: 5px;
+}
+
 #wins {
 	padding-left: 15px;
 }
 
 #pic {
-	margin-top: 10px;
-	font-size: 175px;
+	margin-top: 0px;
+	font-size: 200px;
 	line-height: 1;
-	border: 1px solid grey;
 	padding: 0px;
+	max-height: 215px;
+	max-width: 375px;
 }

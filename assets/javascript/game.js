@@ -36,22 +36,20 @@ var getDisplay = document.getElementById("display")
 var getWins = document.getElementById("wins")
 var getPic = document.getElementById("pic")
 
-// Create list of words and letters
-var wordList = ["dog", "bird", "hedgehog", "calico cat"];
+// Create arrays of words, pictures, and letters
+var wordList = ["imperator furiosa", "immortan joe", "vuvalini", "war boys"];
+var picList = ["<img src=\"assets/images/imperatorfuriosa.jpg\" maxHeight=\"100%\" maxWidth=\"100%\">", "<img src=\"assets/images/immortanjoe.jpg\" maxHeight=\"100%\" maxWidth=\"100%\">", "<img src=\"assets/images/vuvalini.jpg\" maxHeight=\"100%\" maxWidth=\"100%\">", "<img src=\"assets/images/warboys.jpg\" maxHeight=\"100%\" maxWidth=\"100%\">"]
 var allowedLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 // Function to show matching picture on win
 function rightPic(word) {
-	if(word === "dog") {
-		getPic.innerHTML = "<img src=\"assets/images/dog.jpg\" width=\"100%\">";
+	var picIndex = wordList.indexOf(word);
+	getPic.innerHTML = picList[picIndex];
 	}
-}
-
 
 // Set score to zero and display
 var score = 0;
-document.getElementById("wins").innerHTML = score;
-
+document.getElementById("wins").innerHTML = `Wins: ${score}`;
 
 window.onload = reset();
 
@@ -125,10 +123,10 @@ document.onkeyup = function(event) {
 	          		displayWord = progressWord.join(" ");
 	          		getDisplay.innerHTML = displayWord;
 
-	          		// If full word is done, increase score and display score, win message, and matching picture
+	          		// If full word is done, increase score and display score, win message, and matching picture, highlight play again
 	          		if (progressWord.indexOf("_") === -1) {
 	            		score++;
-	            		getWins.innerHTML = score;
+	            		getWins.innerHTML = `Wins: ${score}`;
 	            		getRemaining.innerHTML = "<h3>What a lovely day!</h3><h4>(You won)</h4>";
 	            		rightPic(chosenWord);
 	            		document.getElementById("reset-full").style.backgroundColor = "rgba("+250+","+135+","+4+","+.7+ ")";
@@ -151,9 +149,10 @@ document.onkeyup = function(event) {
 	        		remaining--;
 	        		getRemaining.innerHTML = remaining;
 
-	        		// If run out of guesses
+	        		// If run out of guesses, display and highlight play again
 	        		if (remaining === 0) {
 	        			getRemaining.innerHTML = "Out of guesses!";
+	        			document.getElementById("reset-full").style.backgroundColor = "rgba("+250+","+135+","+4+","+.7+ ")";
 	        		}
 	      	}
 	    	}

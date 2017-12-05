@@ -2,29 +2,28 @@ body {
 	text-align: center;
 	box-sizing: border-box;
 	font-family: 'Bowlby One SC', cursive;
-	background-image: url(../images/background.jpg);
+	background-image: url(../images/background.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
 .jumbotron {
-	background-image: url(../images/banner2.jpg);
+	background-image: url(../images/banner.png);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	text-align: center;
+	text-align: left;
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
 
-.jumbotron h3 {
-	color: #f98704;
-	font-size: 38px;
-	padding: 0px;
+.jumbotron h2 {
+	color: white;
 }
 
-.jumbotron h2 {
+.jumbotron h3 {
 	color: #f98704;
+	padding-left: 50px;
 }
 
 .panel, .well {
@@ -71,6 +70,9 @@ div.panel-body {
 	font-size: 200px;
 	line-height: 1;
 	padding: 0px;
+}
+
+#pic img {
 	max-height: 215px;
 	max-width: 375px;
 }

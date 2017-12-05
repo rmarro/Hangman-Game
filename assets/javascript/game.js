@@ -37,8 +37,8 @@ var getWins = document.getElementById("wins")
 var getPic = document.getElementById("pic")
 
 // Create arrays of words, pictures, and letters
-var wordList = ["imperator furiosa", "immortan joe", "vuvalini", "war boys"];
-var picList = ["<img src=\"assets/images/imperatorfuriosa.jpg\" maxHeight=\"100%\" maxWidth=\"100%\">", "<img src=\"assets/images/immortanjoe.jpg\" maxHeight=\"100%\" maxWidth=\"100%\">", "<img src=\"assets/images/vuvalini.jpg\" maxHeight=\"100%\" maxWidth=\"100%\">", "<img src=\"assets/images/warboys.jpg\" maxHeight=\"100%\" maxWidth=\"100%\">"]
+var wordList = ["imperator furiosa", "immortan joe", "vuvalini", "war boys", "war rig", "bloodbag", "larry and barry", "the green place", "the citadel", "valhalla", "fury road"];
+var picList = ["<img src=\"assets/images/imperatorfuriosa.png\" height=\"100%\" width=\"100%\">", "<img src=\"assets/images/immortanjoe.png\" height=\"100%\" width=\"100%\">", "<img src=\"assets/images/vuvalini.png\" height=\"100%\" width=\"100%\">", "<img src=\"assets/images/warboys.png\" height=\"100%\" width=\"100%\">", "<img src=\"assets/images/warrig.png\" height=\"100%\" width=\"100%\">", "<img src=\"assets/images/bloodbag.png\" height=\"100%\" width=\"100%\">", "<img src=\"assets/images/larryandbarry.png\" height=\"100%\" width=\"100%\">", "<img src=\"assets/images/thegreenplace.png\" height=\"100%\" width=\"100%\">", "<img src=\"assets/images/thecitadel.png\" height=\"100%\" width=\"100%\">", "<img src=\"assets/images/valhalla.png\" height=\"100%\" width=\"100%\">", "<img src=\"assets/images/furyroad.png\" height=\"100%\" width=\"100%\">"]
 var allowedLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 // Function to show matching picture on win
@@ -160,9 +160,3 @@ document.onkeyup = function(event) {
 	}
 }
 
-
-
-
-// TO DO:
-
-// If guess full word, show pic/play song/etc
